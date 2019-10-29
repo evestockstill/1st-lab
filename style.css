@@ -18,12 +18,13 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
+  gap: 40px;
+  margin: 0 40px;
   transform-style: preserve-3d;
 }
 .grid, li {
   display: grid;
-  margin: auto;
+  margin: 1em;
 }
 .animal-title {
   display: flex;
@@ -33,30 +34,31 @@ nav {
   font-size: 0.3em;
   height: 350px;
   width: 350px;
-  background: ;
+  background: hsla(153, 100%, 87%, 1);
   border-radius: 5px;
-  border: 5px solid yellow;
-  border-top: 40px solid yellow;
+  border: 5px solid black;
+  border-top: 20px solid black;
   transition: all 3s ease;
 }
 img {
-    
   height: 200px;
   width: 80%;
-  margin: auto;
+  margin:  .2em auto;
   border: 3px solid black;
   border-radius: 5px;
   outline: 2px solid black;
   outline-offset: -3px;
 }
 legend {
-  color:black;
+  color:hsla(153, 100%, 87%, 1);
   text-shadow: 1px 1px 1px black;
   text-align: center;
-  font-size: 2.2rem;
-  background: yellow;
+  font-size: 1.3rem;
+  background: black;
 }
-.info {
-    font-size: 1rem;
-    text-align: center;
+.horns, .info {
+  background:hsla(153, 100%, 87%, 1);
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.8em;
 }

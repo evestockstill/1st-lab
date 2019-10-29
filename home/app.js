@@ -1,32 +1,32 @@
-import images from '../data/images.js';
+import animals from '../data/images.js';
 import htmlToDOM from '../util/html-to-DOM.js';
-import renderAnimalItem from '../src/render-animal.js';
+import { renderAnimalItem } from '../src/render-animal.js';
 
-const list = document.querySelector('.animal-images');
+const list = document.querySelector('.animals');
 const animalTypeFilter = document.querySelector('.animal-type-filter');
 
 animalTypeFilter.addEventListener('change', () => {
-    const filter = animalTypeFilter.value;
-    let filteredImages = null;
+    const filterString = animalTypeFilter.value;
+    let filteredAnimals = null;
 
-    if (!filter) {
-        filteredImages = images;
+    if (!filterString) {
+        filteredAnimals = animals;
     }
     else {
-        filteredImages = images.filter(images => {
-            return images.type === filter;
+        filteredAnimals = animals.filter(animal => {
+            return animal.type === filterString;
         });
     }
-    render(filteredImages);
+    render(filteredAnimals);
 });
 
-render(images);
-function render(imagesToRender) {
+render(animals);
+function render(animalsToRender) {
     while (list.lastElementChild) {
         list.lastElementChild.remove();
     }
-    imagesToRender.forEach(images => {
-        const html = renderAnimalItem(images);
+    animalsToRender.forEach(animal => {
+        const html = renderAnimalItem(animal);
         const dom = htmlToDOM(html);
         list.appendChild(dom);
     });

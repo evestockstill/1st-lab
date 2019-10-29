@@ -1,12 +1,15 @@
-export function renderAnimalItem(image) {
+export function renderAnimalItem(animal) {
+    if (!animal) {
+        throw new Error('you need an animal');
+    }
     const html = /*html*/`
         <li>
         <div class="grid">
             <fieldset class="animal-title">
-                <legend>${image.title}</legend>
-                <img class="pic" src="${image.url}">
-                    <p class="info">${image.description}</p>
-                    <p class="horns">${image.horns}</p>
+                <legend>${animal.title}</legend>
+                <img class="pic" src="${animal.url}">
+                    <p class="info">${animal.description}</p>
+                    <p class="horns">${animal.horns}</p>
             </fieldset>
         </div>
         </li>
