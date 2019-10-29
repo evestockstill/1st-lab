@@ -3,38 +3,30 @@ import htmlToDOM from '../util/html-to-DOM.js';
 import renderAnimalItem from '../src/render-animal.js';
 
 const list = document.querySelector('.animal-images');
-const catTypeFilter = document.querySelector('.cat-type-filter');
+const animalTypeFilter = document.querySelector('.animal-type-filter');
 
-catTypeFilter.addEventListener('change', () => {
-    const filter = catTypeFilter.value;
-    let filteredCats = null;
+animalTypeFilter.addEventListener('change', () => {
+    const filter = animalTypeFilter.value;
+    let filteredImages = null;
 
     if (!filter) {
-        filteredCats = cats;
+        filteredImages = images;
     }
     else {
-        filteredCats = cats.filter(cat => {
-            return cat.type === filter;
+        filteredImages = images.filter(images => {
+            return images.type === filter;
         });
     }
-
-    render(filteredCats);
+    render(filteredImages);
 });
 
-// kick off initial render on load with all cats
-render(cats);
-
-// put render functionality into function as
-// we want to call repetitively when list is filtered
-function render(catsToRender) {
-    // remove any existing list items
+render(images);
+function render(imagesToRender) {
     while (list.lastElementChild) {
         list.lastElementChild.remove();
     }
-
-    // render new list items
-    catsToRender.forEach(cat => {
-        const html = renderCatItem(cat);
+    imagesToRender.forEach(images => {
+        const html = renderAnimalItem(images);
         const dom = htmlToDOM(html);
         list.appendChild(dom);
     });
