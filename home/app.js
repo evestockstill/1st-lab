@@ -1,8 +1,7 @@
 import animals from '../data/images.js';
 import htmlToDOM from '../util/html-to-DOM.js';
 import { renderAnimalItem } from '../src/render-animal.js';
-
-const list = document.querySelector('.animals');
+const ul = document.getElementById('list-animals');
 const animalTypeFilter = document.querySelector('.animal-type-filter');
 
 animalTypeFilter.addEventListener('change', () => {
@@ -14,7 +13,7 @@ animalTypeFilter.addEventListener('change', () => {
     }
     else {
         filteredAnimals = animals.filter(animal => {
-            return animal.type === filterString;
+            return animal.keyword === filterString;
         });
     }
     render(filteredAnimals);
@@ -22,12 +21,12 @@ animalTypeFilter.addEventListener('change', () => {
 
 render(animals);
 function render(animalsToRender) {
-    while (list.lastElementChild) {
-        list.lastElementChild.remove();
+    while (ul.lastElementChild) {
+        ul.lastElementChild.remove();
     }
     animalsToRender.forEach(animal => {
         const html = renderAnimalItem(animal);
         const dom = htmlToDOM(html);
-        list.appendChild(dom);
+        ul.appendChild(dom);
     });
 }

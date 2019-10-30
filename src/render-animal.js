@@ -3,13 +3,13 @@ export function renderAnimalItem(animal) {
         throw new Error('you need an animal');
     }
     const html = /*html*/`
-        <li>
+        <li class="animals">
         <div class="grid">
             <fieldset class="animal-title">
                 <legend>${animal.title}</legend>
                 <img class="pic" src="${animal.url}">
-                    <p class="info">${animal.description}</p>
-                    <p class="horns">${animal.horns}</p>
+                    <p class="info" title ='${animal.description} and has ${animal.horns} horns'> ${animal.title}   </p>
+                    <p class="horns"></p>
             </fieldset>
         </div>
         </li>
